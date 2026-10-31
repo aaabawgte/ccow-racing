@@ -152,6 +152,7 @@ export const CARS = [
   car('octavia', 'Škoda Octavia karavan', 'S', 'FWD', { kw: 110, nm: 250, rpm: 5000, mass: 1430, len: 4.66, wid: 1.81, wb: 2.68, gears: 6, top: 215, style: 'wagon', color: '#2f4f86', idle: 800 }),
   car('multipla', 'Fiat Multipla', 'S', 'FWD', { kw: 76, nm: 145, rpm: 6000, mass: 1300, len: 4.0, wid: 1.87, wb: 2.67, gears: 5, top: 170, style: 'van', color: '#f29bc1', desc: 'Najljepši auto na svijetu.' }),
   car('a4', 'Audi A4', 'S', 'FWD', { kw: 150, nm: 320, rpm: 6200, mass: 1480, len: 4.76, wid: 1.84, wb: 2.82, gears: 7, top: 240, style: 'sedan', color: '#9aa0a6' }),
+  car('bmw120d', 'BMW 120d', 'S', 'RWD', { kw: 130, nm: 350, rpm: 5000, mass: 1450, len: 4.24, wid: 1.75, wb: 2.66, gears: 6, top: 228, style: 'hatch', color: '#f4f4f0', idle: 750, desc: 'Bijeli BMW 120d.' }),
   car('corsa', 'Opel Corsa', 'S', 'FWD', { kw: 55, nm: 120, rpm: 6000, mass: 1000, len: 3.82, wid: 1.65, wb: 2.49, gears: 5, top: 170, style: 'hatch', color: '#3566b0', wear: 0.4 }),
   car('jaguar', 'Jaguar XF', 'S', 'RWD', { kw: 250, nm: 450, rpm: 6500, mass: 1800, len: 4.96, wid: 1.88, wb: 2.96, gears: 8, top: 250, style: 'sedan', color: '#111214' }),
   car('e36', 'BMW E36', 'S', 'RWD', { kw: 141, nm: 280, rpm: 6500, mass: 1320, len: 4.43, wid: 1.7, wb: 2.7, gears: 5, top: 230, style: 'sedan', color: '#b3161c', wear: 0.3 }),

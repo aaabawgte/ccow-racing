@@ -34,7 +34,7 @@ export const CHARACTERS = [
     look: { skin: SKIN, hair: 'ponytail', hairColor: '#5b3a24', build: 'fit', height: 'tall', female: true, shirt: '#b04f7a' },
   },
   {
-    id: 'lorena', name: 'Lorena Laco', rarity: 'common', car: 'a4', carColor: '#9aa0a6',
+    id: 'lorena', name: 'Lorena Laco', rarity: 'common', car: 'bmw120d', carColor: '#f4f4f0',
     look: { skin: SKIN, hair: 'long', hairColor: '#e3c27a', build: 'muscle', height: 'tall', female: true, shirt: '#2c2f36' },
   },
   {
