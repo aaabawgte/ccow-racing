@@ -482,7 +482,7 @@ export class Menu {
       <p><b>Drift:</b> pun volan + gas pri brzini (ili ručna). Volan u zavoj = dublje, pušten volan = srednji kut, pusti gas ili kontra = izlaz.</p>
       <p><b>Kune:</b> završena vožnja od 3 valjana kruga 300–700 kn (po težini staze), 1 kn na 100 drift bodova, medalje 500 / 1.000 / 2.000 kn jednom po stazi, novi osobni rekord +200 kn, beskrajna 300 kn po km i +1.000 kn za prvu vožnju dana, dnevna prijava 250 kn (niz raste do 1.000 kn). XP raste s kunama, a svaki level daje bonus.</p>
       <p><b>Garaža:</b> svaka nadogradnja ima tri stupnja (ulični, sportski, trkaći) po 5 / 10 / 15% cijene auta. Dijelovi otključavaju besplatno podešavanje. Zamjena pogona stoji 40% cijene, boja 500 kn, dim u boji 1.000 kn. PI raste s nadogradnjama i određuje klasu (D, C, B, A, A+).</p>
-      <p><b>Promaknuća:</b> Rare traži level 5 ili 3 commona, Epic zlato na 3 staze, Legendary jednog epica i zlato na svih 6 staza (dok ne stignu ljestvice). Specijalci se kupuju samo kad su promocija tjedna. Prodani auto vraća 60% cijene.</p>
+      <p><b>Promaknuća:</b> Rare traži level 5 ili 3 commona, Epic zlato na 3 staze, Legendary jednog epica i zlato na 6 staza (dok ne stignu ljestvice). Specijalci se kupuju samo kad su promocija tjedna. Prodani auto vraća 60% cijene.</p>
       <p><b>Kazne:</b> u garaži i na gymkhani udarac u stup je +1 s, srušen čunj +0,5 s. Drift zone množe bodove.</p>
       <p class="hint">Prijavljenom igraču napredak se sprema na server, a vremena idu na ljestvice. Bez računa sve ostaje u ovom pregledniku. Vožnja s promijenjenim postavkama iz panela P ne ide na ljestvicu.</p>`);
     const reset = el('button', 'sell', 'Obriši napredak');

@@ -329,7 +329,68 @@ const rooftop = {
   ],
 };
 
-export const TRACKS = [parking, loading, garage, bypass, rooftop, night];
+// 7. Tsukikage Touge: noćni japanski planinski prijevoj, uzak i nemilosrdan.
+const tougeRoute = [
+  [-190, 170], [-110, 175], [-20, 165], [70, 150], [140, 125], [180, 90], [178, 55], [150, 35],
+  [100, 40], [50, 60], [10, 65], [-20, 50], [-25, 25], [0, 10], [55, 5], [85, -10],
+  [90, -35], [70, -50], [25, -45], [-20, -25], [-60, -30], [-85, -50], [-75, -75], [-35, -88],
+  [15, -82], [50, -95], [55, -120], [35, -135], [-15, -140], [-70, -130], [-115, -140], [-145, -160],
+  [-180, -155], [-200, -125], [-195, -80], [-170, -50], [-140, -35], [-130, -5], [-145, 20], [-180, 30],
+  [-205, 55], [-215, 95], [-210, 135],
+];
+const touge = {
+  id: 'touge',
+  medals: { gold: 76, silver: 92, bronze: 116 },
+  name: 'Tsukikage Touge',
+  short: 'Touge',
+  desc: 'Brutalna noćna planina. Uska cesta, sedam ukosnica, mokri zavoji, stijene i litica bez milosti.',
+  difficulty: 5,
+  theme: {
+    base: '#142b22', patches: '#0f241c', outside: '#07110d', dark: true,
+    road: '#24272c', roadEdge: 'rgba(225, 232, 225, 0.75)', roadCenter: 'rgba(244, 181, 48, 0.58)',
+    treeShadow: 'rgba(0, 0, 0, 0.32)', treeDark: '#183d29', treeLight: '#24573a',
+  },
+  bounds: { minX: -245, maxX: 220, minY: -230, maxY: 210 },
+  base: 'grass',
+  walls: false,
+  route: { width: 8.5, curb: false, points: tougeRoute },
+  areas: [
+    circle(128, 119, 18, { surface: 'gravel' }),
+    rect(-220, 143, -166, 188, { surface: 'gravel' }),
+    circle(157, 40, 11, { surface: 'wet', over: true }),
+    circle(-18, 48, 10, { surface: 'wet', over: true }),
+    circle(76, -47, 10, { surface: 'wet', over: true }),
+    circle(-78, -57, 11, { surface: 'wet', over: true }),
+    circle(-145, 12, 10, { surface: 'wet', over: true }),
+  ],
+  obstacles: [
+    circle(126, 87, 4.8, { kind: 'rock' }), circle(118, 15, 3.8, { kind: 'rock' }),
+    circle(20, 30, 3.3, { kind: 'rock' }), circle(-35, -62, 3.5, { kind: 'rock' }),
+    circle(-112, -98, 4.5, { kind: 'rock' }), circle(-163, -18, 4.2, { kind: 'rock' }),
+    circle(132, -82, 5.8, { kind: 'rock' }), circle(95, -158, 5.0, { kind: 'rock' }),
+    circle(-145, 112, 4.0, { kind: 'rock' }),
+    circle(-188, 153, 0.3, { kind: 'lamp' }), circle(124, 126, 0.3, { kind: 'lamp' }),
+    circle(166, 53, 0.3, { kind: 'lamp' }), circle(66, -67, 0.3, { kind: 'lamp' }),
+    circle(-183, -113, 0.3, { kind: 'lamp' }),
+  ],
+  decor: [
+    { t: 'guardrail', pts: [[177, 104], [188, 86], [187, 62], [171, 42], [151, 27]] },
+    { t: 'guardrail', pts: [[98, -25], [97, -43], [80, -61], [56, -66]] },
+    { t: 'guardrail', pts: [[-193, -155], [-210, -128], [-208, -91], [-190, -61]] },
+    { t: 'guardrail', pts: [[-222, 53], [-229, 88], [-223, 126], [-211, 151]] },
+    { t: 'torii', x: 125, y: 112, rot: -18, size: 8 },
+    { t: 'text', x: 125, y: 133, text: '月影峠', size: 5.5, color: 'rgba(235, 225, 190, 0.72)', rot: -18 },
+    { t: 'text', x: -191, y: 181, text: 'TOUGE START', size: 3.2, color: 'rgba(255, 255, 255, 0.22)' },
+    { t: 'arrow', x: -130, y: 173, rot: -4, size: 3, color: 'rgba(244, 181, 48, 0.45)' },
+    { t: 'arrow', x: 28, y: 158, rot: -10, size: 3, color: 'rgba(244, 181, 48, 0.45)' },
+  ],
+  lights: [
+    [-188, 153, 13], [124, 126, 16], [166, 53, 12], [66, -67, 11], [-183, -113, 12],
+  ].map(([x, y, r]) => ({ x, y, r })),
+  trees: { count: 540, seed: 1986, clearance: 7, spacing: 6.2 },
+};
+
+export const TRACKS = [parking, loading, garage, bypass, rooftop, night, touge];
 
 export function trackDefById(id) {
   return TRACKS.find((t) => t.id === id);

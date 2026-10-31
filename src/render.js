@@ -520,6 +520,52 @@ export class Renderer {
         ctx.restore();
         break;
       }
+      case 'guardrail': {
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.38)';
+        ctx.lineWidth = 0.75;
+        ctx.beginPath();
+        d.pts.forEach(([x, y], i) => (i ? ctx.lineTo(x + 0.25, y - 0.25) : ctx.moveTo(x + 0.25, y - 0.25)));
+        ctx.stroke();
+        ctx.strokeStyle = '#cbd1cf';
+        ctx.lineWidth = 0.38;
+        ctx.beginPath();
+        d.pts.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
+        ctx.stroke();
+        for (let i = 0; i < d.pts.length - 1; i++) {
+          const [ax, ay] = d.pts[i], [bx, by] = d.pts[i + 1];
+          const len = Math.hypot(bx - ax, by - ay);
+          for (let n = 0; n <= len; n += 4) {
+            const k = n / len;
+            ctx.fillStyle = '#f2f0e8';
+            ctx.beginPath();
+            ctx.arc(ax + (bx - ax) * k, ay + (by - ay) * k, 0.16, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        ctx.lineCap = 'butt';
+        break;
+      }
+      case 'torii': {
+        ctx.save();
+        ctx.translate(d.x, d.y);
+        ctx.rotate((d.rot * Math.PI) / 180);
+        const s = d.size;
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+        ctx.fillRect(-s * 0.58 + 0.35, -s * 0.5 - 0.35, s * 0.18, s);
+        ctx.fillRect(s * 0.4 + 0.35, -s * 0.5 - 0.35, s * 0.18, s);
+        ctx.fillStyle = '#b52c27';
+        ctx.fillRect(-s * 0.58, -s * 0.5, s * 0.18, s);
+        ctx.fillRect(s * 0.4, -s * 0.5, s * 0.18, s);
+        ctx.fillRect(-s * 0.72, -s * 0.12, s * 1.44, s * 0.18);
+        ctx.fillStyle = '#d34232';
+        ctx.fillRect(-s * 0.82, s * 0.18, s * 1.64, s * 0.22);
+        ctx.fillStyle = '#1b1b1d';
+        ctx.fillRect(-s * 0.88, s * 0.37, s * 1.76, s * 0.1);
+        ctx.restore();
+        break;
+      }
     }
   }
 
@@ -604,15 +650,15 @@ export class Renderer {
     }
     for (const t of trees) {
       if (t.x + t.crown < v.x0 || t.x - t.crown > v.x1 || t.y + t.crown < v.y0 || t.y - t.crown > v.y1) continue;
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.18)';
+      ctx.fillStyle = this.track.theme.treeShadow || 'rgba(0, 0, 0, 0.18)';
       ctx.beginPath();
       ctx.arc(t.x + 0.8, t.y - 0.8, t.crown, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = t.shade > 0.5 ? '#3c6a37' : '#356031';
+      ctx.fillStyle = t.shade > 0.5 ? (this.track.theme.treeLight || '#3c6a37') : (this.track.theme.treeDark || '#356031');
       ctx.beginPath();
       ctx.arc(t.x, t.y, t.crown, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = '#4b7f43';
+      ctx.fillStyle = this.track.theme.treeLight || '#4b7f43';
       ctx.beginPath();
       ctx.arc(t.x - t.crown * 0.25, t.y + t.crown * 0.25, t.crown * 0.55, 0, Math.PI * 2);
       ctx.fill();
@@ -661,6 +707,28 @@ export class Renderer {
         ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
         ctx.fill();
         break;
+      case 'rock': {
+        const grad = ctx.createRadialGradient(o.x - o.r * 0.3, o.y + o.r * 0.35, o.r * 0.1, o.x, o.y, o.r);
+        grad.addColorStop(0, '#8b918b');
+        grad.addColorStop(0.55, '#5d645f');
+        grad.addColorStop(1, '#303633');
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.35)';
+        ctx.beginPath();
+        ctx.arc(o.x + o.r * 0.18, o.y - o.r * 0.18, o.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(205, 214, 205, 0.2)';
+        ctx.lineWidth = 0.14;
+        ctx.beginPath();
+        ctx.moveTo(o.x - o.r * 0.55, o.y + o.r * 0.1);
+        ctx.lineTo(o.x - o.r * 0.05, o.y + o.r * 0.45);
+        ctx.lineTo(o.x + o.r * 0.5, o.y + o.r * 0.15);
+        ctx.stroke();
+        break;
+      }
       case 'truck': drawTruck(ctx, o); break;
       case 'container': {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';

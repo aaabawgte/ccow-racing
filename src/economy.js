@@ -150,9 +150,9 @@ export class Profile {
     }
     if (ch.rarity === 'epic' && golds < 3) return { ok: false, reason: `Promaknuće: zlato na 3 staze (${golds}/3)` };
     if (ch.rarity === 'legendary') {
-      // Dok nema ljestvica na serveru, umjesto top 3 traži se zlato na svim stazama.
+      // Dok nema ljestvica na serveru, umjesto top 3 traži se zlato na šest staza.
       const hasEpic = owned.some((o) => o.rarity === 'epic');
-      if (!hasEpic || golds < 6) return { ok: false, reason: `Promaknuće: jedan epic i zlato na svih 6 staza (${golds}/6)` };
+      if (!hasEpic || golds < 6) return { ok: false, reason: `Promaknuće: jedan epic i zlato na 6 staza (${golds}/6)` };
     }
     if (ch.rarity === 'special' && weeklySpecial().id !== id) return { ok: false, reason: 'Čeka promociju tjedna' };
     if (d.kune < r.price) return { ok: false, reason: `Fali ${kn(r.price - d.kune)}` };
