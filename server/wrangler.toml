@@ -1,0 +1,14 @@
+name = "ccow-racing"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+# Baza za račune, profile i ljestvice. database_id dobiješ naredbom
+# `npx wrangler d1 create ccow-racing` i upišeš ga ovdje prije prvog deploya.
+[[d1_databases]]
+binding = "DB"
+database_name = "ccow-racing"
+database_id = "UPISI-ID-IZ-WRANGLER-D1-CREATE"
+
+[vars]
+# Odakle igra smije zvati API (GitHub Pages adresa); * dopušta sve.
+ALLOWED_ORIGIN = "*"

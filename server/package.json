@@ -1,0 +1,14 @@
+{
+  "name": "ccow-racing-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "db:local": "wrangler d1 execute ccow-racing --local --file=schema.sql",
+    "db:remote": "wrangler d1 execute ccow-racing --remote --file=schema.sql",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.40.0"
+  }
+}
