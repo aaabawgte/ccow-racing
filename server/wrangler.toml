@@ -7,8 +7,8 @@ compatibility_date = "2026-09-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "ccow-racing"
-database_id = "UPISI-ID-IZ-WRANGLER-D1-CREATE"
+database_id = "2b943411-a7cd-478a-bf26-56db4324001f"
 
 [vars]
 # Odakle igra smije zvati API (GitHub Pages adresa); * dopušta sve.
-ALLOWED_ORIGIN = "*"
+ALLOWED_ORIGIN = "https://aaabawgte.github.io"
