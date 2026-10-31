@@ -329,21 +329,22 @@ const rooftop = {
   ],
 };
 
-// 7. Tsukikage Touge: noćni japanski planinski prijevoj, uzak i nemilosrdan.
+// 7. Tsukikage Touge: noćni japanski planinski prijevoj s raznolikim zavojima.
 const tougeRoute = [
-  [-190, 170], [-110, 175], [-20, 165], [70, 150], [140, 125], [180, 90], [178, 55], [150, 35],
-  [100, 40], [50, 60], [10, 65], [-20, 50], [-25, 25], [0, 10], [55, 5], [85, -10],
-  [90, -35], [70, -50], [25, -45], [-20, -25], [-60, -30], [-85, -50], [-75, -75], [-35, -88],
-  [15, -82], [50, -95], [55, -120], [35, -135], [-15, -140], [-70, -130], [-115, -140], [-145, -160],
-  [-180, -155], [-200, -125], [-195, -80], [-170, -50], [-140, -35], [-130, -5], [-145, 20], [-180, 30],
-  [-205, 55], [-215, 95], [-210, 135],
+  [-195, 170], [-125, 176], [-55, 160], [5, 178], [75, 156], [140, 132], [180, 100], [194, 62],
+  [184, 28], [155, 8], [118, 10], [88, 32], [62, 60], [32, 68], [5, 55], [-8, 32],
+  [-2, 8], [25, -8], [60, -2], [82, -18], [86, -43], [70, -62], [40, -68], [12, -58],
+  [-18, -40], [-48, -38], [-72, -52], [-78, -78], [-62, -96], [-30, -104], [5, -98], [38, -105],
+  [56, -125], [50, -150], [25, -168], [-10, -170], [-45, -156], [-80, -150], [-112, -160], [-150, -176],
+  [-183, -168], [-205, -145], [-214, -112], [-205, -82], [-182, -60], [-150, -52], [-122, -36], [-112, -12],
+  [-122, 12], [-150, 24], [-182, 35], [-208, 58], [-220, 90], [-218, 125], [-208, 150],
 ];
 const touge = {
   id: 'touge',
-  medals: { gold: 76, silver: 92, bronze: 116 },
+  medals: { gold: 78, silver: 95, bronze: 120 },
   name: 'Tsukikage Touge',
   short: 'Touge',
-  desc: 'Brutalna noćna planina. Uska cesta, sedam ukosnica, mokri zavoji, stijene i litica bez milosti.',
+  desc: 'Brutalna noćna planina. Širi asfalt, brzi sweepovi, S-zavoji, šikana i ukosnice u oba smjera.',
   difficulty: 5,
   theme: {
     base: '#142b22', patches: '#0f241c', outside: '#07110d', dark: true,
@@ -353,18 +354,18 @@ const touge = {
   bounds: { minX: -245, maxX: 220, minY: -230, maxY: 210 },
   base: 'grass',
   walls: false,
-  route: { width: 8.5, curb: false, points: tougeRoute },
+  route: { width: 12.5, curb: false, points: tougeRoute },
   areas: [
     circle(128, 119, 18, { surface: 'gravel' }),
     rect(-220, 143, -166, 188, { surface: 'gravel' }),
-    circle(157, 40, 11, { surface: 'wet', over: true }),
-    circle(-18, 48, 10, { surface: 'wet', over: true }),
-    circle(76, -47, 10, { surface: 'wet', over: true }),
-    circle(-78, -57, 11, { surface: 'wet', over: true }),
-    circle(-145, 12, 10, { surface: 'wet', over: true }),
+    circle(188, 44, 11, { surface: 'wet', over: true }),
+    circle(62, 57, 10, { surface: 'wet', over: true }),
+    circle(76, -55, 10, { surface: 'wet', over: true }),
+    circle(-76, -72, 11, { surface: 'wet', over: true }),
+    circle(-119, 0, 10, { surface: 'wet', over: true }),
   ],
   obstacles: [
-    circle(126, 87, 4.8, { kind: 'rock' }), circle(118, 15, 3.8, { kind: 'rock' }),
+    circle(126, 87, 4.8, { kind: 'rock' }), circle(120, 27, 3.8, { kind: 'rock' }),
     circle(20, 30, 3.3, { kind: 'rock' }), circle(-35, -62, 3.5, { kind: 'rock' }),
     circle(-112, -98, 4.5, { kind: 'rock' }), circle(-163, -18, 4.2, { kind: 'rock' }),
     circle(132, -82, 5.8, { kind: 'rock' }), circle(95, -158, 5.0, { kind: 'rock' }),
@@ -374,10 +375,10 @@ const touge = {
     circle(-183, -113, 0.3, { kind: 'lamp' }),
   ],
   decor: [
-    { t: 'guardrail', pts: [[177, 104], [188, 86], [187, 62], [171, 42], [151, 27]] },
-    { t: 'guardrail', pts: [[98, -25], [97, -43], [80, -61], [56, -66]] },
-    { t: 'guardrail', pts: [[-193, -155], [-210, -128], [-208, -91], [-190, -61]] },
-    { t: 'guardrail', pts: [[-222, 53], [-229, 88], [-223, 126], [-211, 151]] },
+    { t: 'guardrail', pts: [[181, 111], [199, 90], [205, 61], [196, 31], [171, 10]] },
+    { t: 'guardrail', pts: [[96, -17], [99, -42], [84, -66], [60, -78]] },
+    { t: 'guardrail', pts: [[-161, -187], [-191, -181], [-217, -157], [-226, -120], [-217, -80]] },
+    { t: 'guardrail', pts: [[-216, 49], [-233, 80], [-233, 122], [-219, 158]] },
     { t: 'torii', x: 125, y: 112, rot: -18, size: 8 },
     { t: 'text', x: 125, y: 133, text: '月影峠', size: 5.5, color: 'rgba(235, 225, 190, 0.72)', rot: -18 },
     { t: 'text', x: -191, y: 181, text: 'TOUGE START', size: 3.2, color: 'rgba(255, 255, 255, 0.22)' },
